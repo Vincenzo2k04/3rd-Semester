@@ -1,0 +1,47 @@
+
+# Resume Matched Score Predictor
+
+This project uses a Python script to predict a 'matched_score' based on resume data. It preprocesses text and numerical data, applies TF-IDF vectorization to relevant text fields, and trains a Ridge Regression model to predict the score.
+
+## Project Overview
+
+The script performs the following steps:
+
+1.  **Import Libraries:** Imports necessary libraries like pandas, numpy, scikit-learn (MinMaxScaler, TfidfVectorizer, Ridge, train_test_split, metrics), and scipy.sparse.
+2.  **Load Data:** Reads data from a CSV file named `resume_data.csv`.
+3.  **Data Preprocessing:**
+    * Handles missing values by dropping columns with high null percentages (threshold > 70%) and filling remaining nulls (text with "Unknown", numeric with mean).
+    * Removes potential outliers from numerical columns using the IQR method.
+    * Normalizes numerical features using MinMaxScaler.
+4.  **Feature Engineering (TF-IDF):**
+    * Applies TF-IDF (Term Frequency-Inverse Document Frequency) vectorization to text columns: 'skills', 'responsibilities', 'skills_required', 'related_skils_in_job'.
+    * Combines the resulting sparse matrices.
+5.  **Model Training:**
+    * Splits the data into training and testing sets (80/20 split).
+    * Trains a Ridge Regression model (`alpha=1.0`) using the TF-IDF features as input (X) and 'matched_score' as the target (y).
+6.  **Model Evaluation:**
+    * Predicts scores on the test set.
+    * Evaluates the model using R2 Score, Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE).
+7.  **Sample Prediction:** Demonstrates how to predict the matched score for a sample resume input.
+
+## Key Libraries Used
+
+* Pandas
+* NumPy
+* Scikit-learn
+* SciPy
+
+## Evaluation Results
+
+The model achieved the following results on the test set:
+* **R2 Score:** 0.406
+* **MAE:** 0.139
+* **RMSE:** 0.175
+
+## How to Run
+
+1.  Ensure you have Python and the required libraries installed (`pip install pandas numpy scikit-learn scipy`).
+2.  Make sure the `resume_data.csv` file is in the same directory as the script.
+3.  Run the Python script.
+
+*(Note: The script includes an example of predicting a score for a hardcoded sample resume)*.
