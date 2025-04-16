@@ -1,9 +1,8 @@
-
-# Resume Matched Score Predictor
+ Resume Matched Score Predictor
 
 This project uses a Python script to predict a 'matched_score' based on resume data. It preprocesses text and numerical data, applies TF-IDF vectorization to relevant text fields, and trains a Ridge Regression model to predict the score.
 
-## Project Overview
+Project Overview
 
 The script performs the following steps:
 
@@ -24,21 +23,21 @@ The script performs the following steps:
     * Evaluates the model using R2 Score, Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE).
 7.  **Sample Prediction:** Demonstrates how to predict the matched score for a sample resume input.
 
-## Key Libraries Used
+Key Libraries Used
 
 * Pandas
 * NumPy
 * Scikit-learn
 * SciPy
 
-## Evaluation Results
+Evaluation Results
 
 The model achieved the following results on the test set:
 * **R2 Score:** 0.406
 * **MAE:** 0.139
 * **RMSE:** 0.175
 
-## How to Run
+How to Run
 
 1.  Ensure you have Python and the required libraries installed (`pip install pandas numpy scikit-learn scipy`).
 2.  Make sure the `resume_data.csv` file is in the same directory as the script.
